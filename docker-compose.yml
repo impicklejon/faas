@@ -35,7 +35,7 @@ services:
             labels:
                 - traefik.port=8080
                 - traefik.docker.network=traefik_network
-                - traefik.frontend.rule='Host:faas.swarm.future.net.uk,function.swarm.future.net.uk'
+                - traefik.frontend.rule=Host:faas.swarm.future.net.uk,function.swarm.future.net.uk
         secrets:
             - basic-auth-user
             - basic-auth-password
@@ -153,7 +153,7 @@ services:
             labels:
               - traefik.port=9090
               - traefik.docker.network=traefik_network
-              - traefik.frontend.rule='Host:prometheus.function.swarm.future.net.uk,prometheus.faas.swarm.future.net.uk'
+              - traefik.frontend.rule=Host:prometheus.function.swarm.future.net.uk,prometheus.faas.swarm.future.net.uk
     alertmanager:
         image: prom/alertmanager:v0.15.0
         environment:
@@ -177,7 +177,7 @@ services:
             labels:
               - traefik.port=9093
               - traefik.docker.network=traefik_network
-              - traefik.frontend.rule='Host:alertmanager.function.swarm.future.net.uk,alertmanager.faas.swarm.future.net.uk'
+              - traefik.frontend.rule=Host:alertmanager.function.swarm.future.net.uk,alertmanager.faas.swarm.future.net.uk
         configs:
             - source: alertmanager_config
               target: /alertmanager.yml
